@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo-app
+  namespace: argocd1
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/Cloud-Mak/Demo_ArgoCD.git
+    targetRevision: HEAD
+    path: yamls
+    directory:
+      recurse: true
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: false
+      selfHeal: false
