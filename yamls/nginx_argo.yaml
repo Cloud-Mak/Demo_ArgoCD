@@ -5,7 +5,7 @@ metadata:
     app: nginx
   name: nginx-argo
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: nginx
@@ -15,5 +15,5 @@ spec:
         app: nginx
     spec:
       containers:
-      - image: nginx:1.16-alpine
+      - image: nginx:1.17-alpine
         name: nginx
